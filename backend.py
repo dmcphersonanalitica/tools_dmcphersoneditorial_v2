@@ -11,8 +11,9 @@ quality_model = {
         2: 'whisper-base',
         3: 'whisper-small',
         4: 'whisper-medium',
-        5: 'whisper-large-v2',
-        6: 'whisper-large-v3'
+        5: 'whisper-large',
+        6: 'whisper-large-v2',
+        7: 'whisper-large-v3'
     }
 
 
@@ -23,7 +24,7 @@ def audio_transcription(quality, audio_file, format_result):
     model_id = "openai/" + quality_model[quality]
 
     model = AutoModelForSpeechSeq2Seq.from_pretrained(
-        model_id, torch_dtype=torch_dtype, low_cpu_mem_usage=True, use_safetensors=True
+        model_id, torch_dtype=torch_dtype, low_cpu_mem_usage=True, use_safetensors=True, attn_implementation="sdpa"
     )
     model.to(device)
 

@@ -27,7 +27,7 @@ st.title('DMcPherson Editorial Tools')
 st.sidebar.title('Transcription options')
 transcription_type = st.sidebar.radio('Transcription source', ['Audio', 'Video'])
 transcription_format = st.sidebar.radio('Transcription format', ['Plane text', 'Timeline text'])
-transcription_quality = st.sidebar.slider('Transcription quality', min_value=1, max_value=3, value=2)
+transcription_quality = st.sidebar.slider('Transcription quality', min_value=1, max_value=7, value=4)
 
 
 # upload audio or video file
